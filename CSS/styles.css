@@ -76,5 +76,11 @@ body {
     width: 100%;
   }
   
-  /* Additional styles as needed... */
+  .responsive-image {
+    max-width: 100%;
+    height: auto;
+    display: block; /* This ensures images are block-level elements */
+    margin: 0 auto; /* This centers the image in its container */
+  }
+  
   

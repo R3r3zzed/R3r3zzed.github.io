@@ -78,9 +78,8 @@ body {
   
   .responsive-image {
     max-width: 100%;
+    max-height: 400px; /* Adjust this value as needed */
     height: auto;
-    display: block; /* This ensures images are block-level elements */
-    margin: 0 auto; /* This centers the image in its container */
+    display: block;
+    margin: 0 auto;
   }
-  
-  

@@ -1,0 +1,80 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Updated font-family */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* New background color for techy feel */
+    color: #cccccc; /* Updated text color for better readability */
+  }
+  
+  /* Root variables for easy color scheme management */
+  :root {
+    --accent-color: #00b4d8; /* Vibrant blue accent */
+    --background-color: #121212; /* Dark background for techy feel */
+    --text-color: #cccccc; /* Light text color */
+    --nav-background-color: #1a1a1a; /* Slightly lighter for contrast */
+  }
+  
+  header {
+    background: var(--nav-background-color);
+    color: var(--text-color);
+    padding: 10px 0;
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 10px;
+  }
+  
+  nav a {
+    color: var(--text-color);
+    text-decoration: none;
+  }
+  
+  nav a:hover, nav a:focus {
+    color: var(--accent-color);
+    text-decoration: underline;
+  }
+  
+  main {
+    padding: 15px;
+  }
+  
+  /* New project card styles */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .project-card {
+    background-color: #1e1e1e;
+    border: 1px solid #333333;
+    padding: 15px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+  }
+  
+  footer {
+    background: var(--nav-background-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  /* Additional styles as needed... */
+  

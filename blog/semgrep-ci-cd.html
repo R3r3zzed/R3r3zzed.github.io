@@ -24,13 +24,15 @@
     <h1>Semgrep in CI/CD: Developer-Friendly Security with Room to Grow</h1>
     <p><strong>By Sedat Altun</strong></p>
 
-    <p>During my internship with <strong>IT Society</strong>, I had the opportunity to work with <a href="https://semgrep.dev" target="_blank">Semgrep</a>, an open-source static analysis tool...</p>
+    <p>During my internship with <strong>IT Society</strong>, I had the opportunity to work with <a href="https://semgrep.dev" target="_blank">Semgrep</a>, an open-source static analysis tool. My assignment was to integrate it into our GitHub-based CI/CD pipeline, and in doing so, I got a front-row seat to how modern DevSecOps workflows are evolving—and how security tools are trying to catch up.</p>
 
     <h2>🔍 What Makes Semgrep Special?</h2>
-    <p>Semgrep’s strength is in its simplicity...</p>
+    <p>Semgrep’s strength is in its simplicity. It scans source code for vulnerabilities and bad practices with speed and precision. But beyond that, what struck me most was how naturally it fits into a developer’s workflow.</p>
+
+    <p>You don’t need to learn a whole new ecosystem. You don’t need to write complex rules (though you can). You just drop it into a GitHub Action or run it locally, and it starts doing its job—quietly, effectively, and without breaking your rhythm.</p>
 
     <h2>⚙️ CI/CD Integration Walkthrough</h2>
-    <p>We used GitHub Actions...</p>
+    <p>We used GitHub Actions to run Semgrep automatically on every push and pull request. Here’s the configuration we used:</p>
     <pre><code>
 on: [push, pull_request]
 
@@ -43,32 +45,40 @@ jobs:
         with:
           config: auto
     </code></pre>
-    <p>Within seconds, developers would see inline comments...</p>
+    <p>Within seconds, developers would see inline comments and checks right in the pull request. That kind of feedback loop is powerful—it encourages security-aware development without slowing people down.</p>
 
     <h2>📷 Real Example: Detecting a NoSQL Injection Risk</h2>
     <img src="../images/semgrep-results.png" alt="Semgrep NoSQL Injection Finding" class="responsive-image">
-    <p>This screenshot shows Semgrep flagging a critical vulnerability...</p>
+    <p>This screenshot shows Semgrep flagging a critical vulnerability in a test repository. It detected a potential NoSQL injection vector—something that could easily be missed during normal reviews.</p>
 
     <h2>🧪 Beyond Code: SCA (Software Composition Analysis)</h2>
-    <p>Semgrep also offers SCA functionality...</p>
+    <p>Semgrep also offers SCA functionality, which scans for:</p>
     <ul>
       <li>Common Vulnerabilities and Exposures (CVEs)</li>
       <li>Outdated dependencies</li>
       <li>Supply chain risks</li>
     </ul>
-    <p>This is crucial in environments like JavaScript and Python...</p>
+    <p>This is crucial in environments like JavaScript and Python, where the code you write is often dwarfed by the packages you import.</p>
 
     <img src="../images/missing-user.png" alt="Semgrep finding: Missing USER in Dockerfile" class="responsive-image">
-    <p>This finding highlights a high-severity Docker risk where containers may run as <code>root</code> if a non-root user isn't explicitly declared.</p>
+    <p>This finding highlights a high-severity risk in a Dockerfile where no non-root user was specified. Running containers as <code>root</code> introduces unnecessary risk, especially in shared environments.</p>
 
-    <img src="../images/autoescape.png" alt="Semgrep finding: autoescape-disabled (XSS risk)" class="responsive-image">
-    <p>Here, Semgrep detected disabled HTML escaping. If user input hits this path, it opens the door to XSS. Tiny misconfigs like this can lead to big vulnerabilities.</p>
+    <img src="../images/autoescape-disabled.png" alt="Semgrep finding: autoescape-disabled (XSS risk)" class="responsive-image">
+    <p>This alert shows how Semgrep caught a medium-severity XSS risk due to HTML escaping being disabled. Even a small template change like <code>escape=false</code> can open the door to cross-site scripting when user data gets involved.</p>
 
-    <h2>💬 My Thoughts...</h2>
-    <p>Semgrep is one of the most developer-friendly tools I’ve encountered...</p>
+    <h2>💬 My Thoughts: The Good, the Gaps, and the Gray Area</h2>
+    <p>Semgrep is one of the most developer-friendly security tools I’ve encountered. It doesn’t try to dominate the dev workflow—it integrates with it. That’s rare.</p>
+
+    <p>Its <strong>versatility</strong> is also worth noting: you can scan custom patterns, specific languages, or broad codebases. And for many smaller teams, the <strong>free tier</strong> is more than enough to get value out of it.</p>
+
+    <p>But let’s talk about the elephant in the room: the free plan limits how many contributors can collaborate under one project. If you're part of a security-heavy org with 10+ engineers, the <strong>$40/month Pro plan</strong> is a solid investment—but there may be more robust solutions (like Snyk or SonarQube) that offer greater depth, dashboards, or team-wide policy enforcement.</p>
+
+    <p>That doesn’t take away from Semgrep’s core strength though: it’s <strong>easy, fast, and accessible</strong>. For individual developers, students, interns, or even lean startups, it’s one of the most effective security tools to start with.</p>
 
     <h2>🎓 What I Took Away</h2>
-    <p>This experience gave me more than just exposure to a tool—it helped me internalize what it means to “shift left” in security...</p>
+    <p>This experience gave me more than just exposure to a tool—it helped me internalize what it means to “shift left” in security. I realized that good security doesn't have to be heavy-handed. It can be as simple as giving developers real-time feedback in the environment they're already working in.</p>
+
+    <p>Semgrep helped me appreciate the balance between speed and safety—and showed me that if security is baked into the dev flow, it doesn’t slow you down. It makes you faster.</p>
 
     <a href="index.html">← Back to Blog</a>
   </main>
@@ -78,4 +88,5 @@ jobs:
   </footer>
 </body>
 </html>
+
 

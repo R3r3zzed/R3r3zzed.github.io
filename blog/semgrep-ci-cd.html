@@ -58,7 +58,7 @@ jobs:
       <img src="../images/missing-user.png" alt="Semgrep finding: Missing USER in Dockerfile" class="responsive-image">
       <p>This finding highlights a high-severity risk in a Dockerfile where no non-root user was specified. Running containers as <code>root</code> introduces unnecessary risk, especially in shared environments.</p>
 
-      <img src="../images/autoescape-disabled.png" alt="Semgrep finding: autoescape-disabled (XSS risk)" class="responsive-image">
+      <img src="../images/autoescape.png" alt="Semgrep finding: autoescape-disabled (XSS risk)" class="responsive-image">
       <p>This alert shows how Semgrep caught a medium-severity XSS risk due to HTML escaping being disabled. Even a small template change like <code>escape=false</code> can open the door to cross-site scripting when user data gets involved.</p>
 
       <h2>💬 My Thoughts: The Good, the Gaps, and the Gray Area</h2>

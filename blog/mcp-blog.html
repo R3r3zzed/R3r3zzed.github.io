@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Understanding MCP in Application Security</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; line-height: 1.6; }
+    h1, h2 { color: #2a2a2a; }
+    img { max-width: 100%; margin: 1rem 0; }
+    .caption { font-style: italic; font-size: 0.9rem; color: #555; }
+    code { background-color: #f4f4f4; padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+
+  <h1>🔍 Understanding Model Context Protocol (MCP) in Application Security</h1>
+
+  <h2>What is MCP?</h2>
+  <p>
+    Model Context Protocol (MCP) is a standardized data format for structuring information shared between systems and large language models (LLMs).
+    Originally developed to help LLMs process complex context more effectively, MCP is now gaining traction in security tools and workflows — particularly in application security.
+    By organizing key elements like metadata, vulnerability details, and source code context into structured fields, MCP eliminates ambiguity and boosts the intelligence of any connected tool or model.
+  </p>
+
+  <h2>Why MCP Matters for Large Language Models</h2>
+  <p>
+    Large Language Models like Claude or GPT need more than just raw data — they need context they can <strong>understand</strong>.
+    When you throw unstructured logs or CLI outputs at them, they’re forced to guess what’s important.
+    MCP fixes that by offering a clean structure: every piece of information has a label, a type, and a purpose.
+    This allows LLMs to interpret context accurately, produce targeted answers, and even automate tasks like generating summaries or recommendations.
+  </p>
+
+  <img src="https://dryviq.com/wp-content/uploads/2023/12/structured-vs-unstructured-data-4-key-differences-infographic.png" alt="Structured vs. Unstructured Data Diagram">
+  <div class="caption">Figure 1: Structured vs. Unstructured Data Comparison. Source: DryvIQ</div>
+
+  <h2>MCP in Application Security</h2>
+  <p>
+    Application security tools like Semgrep scan source code to detect vulnerabilities. Traditionally, the scan results are output as plaintext, CSV, or custom JSON — formats that are often inconsistent across tools.
+    With MCP, vulnerabilities are wrapped in well-defined objects. This includes fields like:
+  </p>
+  <ul>
+    <li><code>type</code> (e.g., vulnerability)</li>
+    <li><code>id</code> (unique identifier)</li>
+    <li><code>description</code></li>
+    <li><code>location</code> (file + line number)</li>
+    <li><code>severity</code></li>
+    <li><code>recommendation</code></li>
+    <li><code>metadata</code> (language, discovery date, etc.)</li>
+  </ul>
+  <p>
+    This structured format means tools and pipelines can:
+  </p>
+  <ul>
+    <li>Ingest data instantly</li>
+    <li>Let AI models generate remediations on the fly</li>
+    <li>Automate ticket creation and developer alerts</li>
+  </ul>
+
+  <img src="https://www.shapediver.com/blog/json-objects-explained/json_object_diagram.png" alt="Anatomy of a JSON Object">
+  <div class="caption">Figure 2: Anatomy of a JSON Object. Source: ShapeDiver</div>
+
+  <h2>Testing MCP with Claude</h2>
+  <p>
+    To simulate how MCP helps in real workflows, I created a sample vulnerability object using the MCP format.
+    The object described a SQL injection vulnerability in a Python Flask app, including file location, severity, and a recommended fix.
+  </p>
+  <p>
+    I then fed this object into <strong>Claude AI</strong>, which acted as an MCP client. Claude instantly parsed the object and returned:
+  </p>
+  <ul>
+    <li>A professional summary of the vulnerability</li>
+    <li>Its severity and location</li>
+    <li>A precise fix recommendation</li>
+  </ul>
+
+  <img src="https://example.com/claude-response.png" alt="Claude's Response to MCP Object">
+  <div class="caption">Figure 3: Claude's Response to an MCP Object. (Placeholder Image)</div>
+
+  <h2>Real-World Use Case</h2>
+  <p>
+    Imagine this in an actual dev workflow:
+  </p>
+  <ol>
+    <li><strong>Semgrep scans the code</strong> and finds a vulnerability.</li>
+    <li>It outputs that finding in <strong>MCP format</strong>.</li>
+    <li>An internal AI assistant or dashboard <strong>ingests that object</strong>.</li>
+    <li>It auto-generates:
+      <ul>
+        <li>JIRA tickets</li>
+        <li>Slack alerts</li>
+        <li>Suggested code fixes</li>
+        <li>Management reports</li>
+      </ul>
+    </li>
+  </ol>
+
+  <img src="https://example.com/appsec-workflow.png" alt="Modern AppSec Workflow with MCP">
+  <div class="caption">Figure 4: Modern Application Security Workflow with MCP. (Placeholder Image)</div>
+
+  <h2>Final Thoughts</h2>
+  <p>
+    MCP is more than a formatting standard — it’s a <strong>bridge</strong> between the raw outputs of security tools and the intelligent insights we want from AI systems.
+    By giving structure to chaos, it makes LLMs useful not just in chat, but in <strong>enterprise-grade security operations</strong>.
+  </p>
+  <p>
+    This protocol enables scalable security automation, smarter developer workflows, and LLMs that don’t just talk — they help solve problems.
+  </p>
+
+  <h2>✅ TL;DR</h2>
+  <ul>
+    <li>MCP structures context for LLMs.</li>
+    <li>It’s now used in tools like Semgrep to format vulnerabilities.</li>
+    <li>LLMs (like Claude) can instantly understand and respond to MCP data.</li>
+    <li>This leads to faster, automated, and smarter security pipelines.</li>
+  </ul>
+
+</body>
+</html>
